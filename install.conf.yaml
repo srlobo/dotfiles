@@ -1,8 +1,12 @@
 - clean: ['~']
 
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
 - link:
     ~/.vim: vimconf/vim/
     ~/.vimrc: vimconf/vimrc
-
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
+    ~/.liquidpromptrc: config-liquidprompt/liquidpromptrc
+    ~/.config/liquidprompt:
+        create: true
+        path: config-liquidprompt/
