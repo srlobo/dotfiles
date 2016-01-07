@@ -1,0 +1,67 @@
+ResetColours="$(tput sgr0)"
+Black="$(tput setaf 0)"
+BlackBG="$(tput setab 0)"
+DarkGrey="$(tput bold ; tput setaf 0)"
+LightGrey="$(tput setaf 7)"
+LightGreyBG="$(tput setab 7)"
+White="$(tput bold ; tput setaf 7)"
+
+Red="$(tput setaf 1)"
+RedBG="$(tput setab 1)"
+LightRed="$(tput bold ; tput setaf 1)"
+Green="$(tput setaf 2)"
+GreenBG="$(tput setab 2)"
+LightGreen="$(tput bold ; tput setaf 2)"
+Brown="$(tput setaf 3)"
+BrownBG="$(tput setab 3)"
+Yellow="$(tput bold ; tput setaf 3)"
+Blue="$(tput setaf 4)"
+BlueBG="$(tput setab 4)"
+BrightBlue="$(tput bold ; tput setaf 4)"
+Purple="$(tput setaf 5)"
+PurpleBG="$(tput setab 5)"
+Pink="$(tput bold ; tput setaf 5)"
+Cyan="$(tput setaf 6)"
+CyanBG="$(tput setab 6)"
+BrightCyan="$(tput bold ; tput setaf 6)"
+
+function prompt_command
+{
+	e_STATUS=$?
+	if [ $e_STATUS -ne 0 ]
+	then
+		e_STATUS="${Blue}[${Yellow}Exit Status ${e_STATUS}${Blue}]${ResetColours}"
+		echo $e_STATUS
+	fi
+
+	#   How many characters of the $PWD should be kept
+	local pwdmaxlen=30
+	#   Indicator that there has been directory truncation:
+	#trunc_symbol="<"
+	local trunc_symbol="..."
+	local rPWD=${PWD//$HOME/\~}
+	if [ ${#rPWD} -gt $pwdmaxlen ]
+	then
+		local pwdoffset=$(( ${#rPWD} - $pwdmaxlen ))
+		newPWD="${trunc_symbol}${rPWD:$pwdoffset:$pwdmaxlen}"
+	else
+		newPWD=${rPWD}
+	fi
+}
+
+PROMPT_COMMAND=prompt_command
+
+if [ ! -z "${WINDOW}" ]
+then
+	sc="[${Cyan}SW:$WINDOW${ResetColours}]"
+else
+	sc="[${Cyan}No Screen!!!!${ResetColours}]"
+fi
+
+#export PS1='[\['"${Red}"'\]\u@\h\['"${ResetColours}"'\]][\['"${Green}"'\]\@:\d\['"${ResetColours}"'\]]'"$sc"'\n$newPWD\$ '
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="verbose"
+export PS1='${debian_chroot:+($debian_chroot)}\u@\h:$newPWD$(__git_ps1)\$ '
+
