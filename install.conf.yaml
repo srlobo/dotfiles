@@ -6,6 +6,7 @@
 - link:
     ~/.vim: vimconf/vim/
     ~/.vimrc: vimconf/vimrc
+    ~/.liquidprompt: liquidprompt/
     ~/.liquidpromptrc: config-liquidprompt/liquidpromptrc
     ~/.config/liquidprompt:
         create: true
