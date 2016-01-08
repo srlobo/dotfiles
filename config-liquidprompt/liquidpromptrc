@@ -35,7 +35,7 @@ LP_PATH_KEEP=2
 # Do you want to display the hostname, even if not connected through network?
 # Defaults to 0 (do not display hostname when locally connected)
 # set to 1 if you want to always see the hostname
-LP_HOSTNAME_ALWAYS=0
+LP_HOSTNAME_ALWAYS=1
 
 # Do you want to display the user, even if the user is the same as the one logged in?
 # Defaults to 1 (always display the user)
@@ -134,7 +134,7 @@ LP_TIME_ANALOG=0
 LP_ENABLE_TITLE=0
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=1
+LP_ENABLE_SCREEN_TITLE=0
 
 # Use differents colors for differents hosts you SSH in
 LP_ENABLE_SSH_COLORS=0
