@@ -14,7 +14,7 @@ LP_PS1_FILE=~/.config/liquidprompt/liquid.ps1
 
 # Maximal value under which the battery level is displayed
 # Recommended value is 75
-LP_BATTERY_THRESHOLD=75
+LP_BATTERY_THRESHOLD=15
 
 # Minimal value after which the load average is displayed
 # Recommended value is 60
@@ -85,15 +85,15 @@ LP_ENABLE_SVN=1
 
 # Do you want to use the Mercurial special features?
 # Recommended value is 1
-LP_ENABLE_HG=1
+LP_ENABLE_HG=0
 
 # Do you want to use the Fossil special features?
 # Recommended value is 1
-LP_ENABLE_FOSSIL=1
+LP_ENABLE_FOSSIL=0
 
 # Do you want to use the Bazaar special features?
 # Recommanded value is 1
-LP_ENABLE_BZR=1
+LP_ENABLE_BZR=0
 
 # Show time of the last prompt display
 # Recommended value is 0
@@ -134,7 +134,7 @@ LP_TIME_ANALOG=0
 LP_ENABLE_TITLE=0
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=0
+LP_ENABLE_SCREEN_TITLE=1
 
 # Use differents colors for differents hosts you SSH in
 LP_ENABLE_SSH_COLORS=0
